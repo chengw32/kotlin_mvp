@@ -6,10 +6,15 @@ import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.chen.kotlin.kotlin_mvp.Base.BaseActivity
+import com.chen.kotlin.kotlin_mvp.main.module.User
+import com.chen.kotlin.kotlin_mvp.main.presenter.DataCallBack
 import com.chen.kotlin.kotlin_mvp.main.presenter.UserPresenter
-import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity() ,DataCallBack{
+    override fun dataBack(users: List<User>) {
+        users.forEach { Log.e("--forEach--",""+it) }
+    }
+
     override fun initView() {
 
     }
@@ -20,9 +25,9 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        kt_recycle.adapter
-        bt_search.setOnClickListener { Log.e("t",et_content.text.toString()) }
-        var p = UserPresenter()
+//        kt_recycle.adapter
+//        bt_search.setOnClickListener { Log.e("t",et_content.text.toString()) }
+        var p = UserPresenter(this)
         p.getData()
     }
 

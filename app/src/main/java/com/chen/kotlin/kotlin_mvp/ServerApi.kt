@@ -1,6 +1,10 @@
 package com.chen.kotlin.kotlin_mvp
 
+import com.chen.kotlin.kotlin_mvp.main.module.User
+import com.chen.kotlin.kotlin_mvp.main.module.Users
+import io.reactivex.Flowable
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * Author chen_gw
@@ -10,6 +14,6 @@ import retrofit2.http.GET
 
 interface ServerApi{
 
-        @GET("")
-        fun getUser(){}
+        @GET("search/users")
+        fun getUser(@Query("q")key:String):Flowable<Users>
 }
