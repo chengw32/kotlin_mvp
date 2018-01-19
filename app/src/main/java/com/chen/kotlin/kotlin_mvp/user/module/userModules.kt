@@ -1,4 +1,4 @@
-package com.chen.kotlin.kotlin_mvp.main.module
+package com.chen.kotlin.kotlin_mvp.user.module
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -13,7 +13,7 @@ import com.google.gson.annotations.SerializedName
 data class Users(var items:List<User>)
 
 data class User(@SerializedName("login")var name:String, var avatar_url:String,
-                var html_url:String, var score:Double, var repos_url:String): Parcelable {
+                var html_url:String, var score:Double, var repos_url:String, var url:String): Parcelable {
 
     companion object {
         @JvmField
@@ -28,7 +28,8 @@ data class User(@SerializedName("login")var name:String, var avatar_url:String,
                 val html_url =  source.readString()
                 val score = source.readDouble()
                 val repos_url= source.readString()
-                return User(name,avatar_url,html_url,score,repos_url)
+                val url= source.readString()
+                return User(name,avatar_url,html_url,score,repos_url,url)
             }
 
         }
@@ -40,6 +41,7 @@ data class User(@SerializedName("login")var name:String, var avatar_url:String,
         dest?.writeString(html_url)
         dest?.writeDouble(score)
         dest?.writeString(repos_url)
+        dest?.writeString(url)
     }
 
     override fun describeContents(): Int = 0
