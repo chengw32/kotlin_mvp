@@ -1,9 +1,8 @@
 package com.chen.kotlin.kotlin_mvp.detail
 
-import android.util.Log
 import com.chen.kotlin.kotlin_mvp.Base.BaseActivity
 import com.chen.kotlin.kotlin_mvp.R
-import com.chen.kotlin.kotlin_mvp.detail.module.BaseDataCallBack
+import com.chen.kotlin.kotlin_mvp.Base.BaseDataCallBack
 import com.chen.kotlin.kotlin_mvp.detail.module.DetailBean
 import com.chen.kotlin.kotlin_mvp.detail.presenter.DetailPresenter
 import com.chen.kotlin.kotlin_mvp.utils.GlideUtil
@@ -14,11 +13,11 @@ import kotlinx.android.synthetic.main.activity_detail.*
  * Date 2018/1/19 11:16
  * DES :
  */
-class DetailActivity : BaseActivity(),BaseDataCallBack{
+class DetailActivity : BaseActivity(), BaseDataCallBack<DetailBean> {
     override fun initView() {
        var detailPath = intent.getStringExtra("path")
         var presenter = DetailPresenter(this)
-        presenter.getDetail(detailPath)
+        presenter.getData(detailPath)
 
     }
 

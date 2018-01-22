@@ -4,7 +4,6 @@ import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.chen.kotlin.kotlin_mvp.user.module.MyRecycleViewHolder
 import java.util.*
 
 /**
@@ -13,9 +12,9 @@ import java.util.*
  * DES : 列表适配器
  */
 
-abstract class BaseAdapter (var context :Context) : RecyclerView.Adapter<MyRecycleViewHolder>() {
-    val dataList : ArrayList<Any> by lazy {
-        arrayListOf<Any>()
+abstract class BaseAdapter  <T> (var context :Context) : RecyclerView.Adapter<MyRecycleViewHolder>()  {
+    val dataList : ArrayList<T> by lazy {
+        arrayListOf<T>()
     }
     override fun getItemCount(): Int = dataList.size
 
@@ -29,9 +28,9 @@ abstract class BaseAdapter (var context :Context) : RecyclerView.Adapter<MyRecyc
     }
 
     abstract fun setItemLayout():Int
-    abstract fun setItemUiData(holder: MyRecycleViewHolder?, position: Int,data : Any)
+    abstract fun setItemUiData(holder: MyRecycleViewHolder?, position: Int, data : T)
 
-    fun setDataChanged(data : List<Any>){
+    fun setDataChanged(data : List<T>){
         dataList.clear()
         dataList.addAll(data)
         this.notifyDataSetChanged()

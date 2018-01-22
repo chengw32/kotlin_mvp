@@ -1,6 +1,8 @@
 package com.chen.kotlin.kotlin_mvp.user.presenter
 
-import com.chen.kotlin.kotlin_mvp.user.module.ServerApi
+import com.chen.kotlin.kotlin_mvp.Base.BaseDataCallBack
+import com.chen.kotlin.kotlin_mvp.serverapi.ServerApi
+import com.chen.kotlin.kotlin_mvp.user.module.User
 import com.chen.kotlin.kotlin_mvp.utils.RetrofitManager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -11,7 +13,7 @@ import io.reactivex.schedulers.Schedulers
  * DES :
  */
 
-class UserPresenter(var callback: DataCallBack){
+class UserPresenter(var callback: BaseDataCallBack<List<User>>){
 
     fun getData (keyword :String)  {
         RetrofitManager.bulid().create(ServerApi::class.java).getUser(keyword)

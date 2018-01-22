@@ -1,4 +1,4 @@
-package com.chen.kotlin.kotlin_mvp.user.module
+package com.chen.kotlin.kotlin_mvp.Base
 
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray

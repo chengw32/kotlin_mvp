@@ -5,7 +5,7 @@ import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 
 /**
- * Author 陈国武
+ * Author chen_gw
  * Date 2018/1/11 9:41
  * DES :
  */

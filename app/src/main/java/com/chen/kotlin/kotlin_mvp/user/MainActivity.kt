@@ -1,20 +1,16 @@
-package com.chen.kotlin.kotlin_mvp
+package com.chen.kotlin.kotlin_mvp.user
 
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Rect
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.View
 import com.chen.kotlin.kotlin_mvp.Base.BaseActivity
-import com.chen.kotlin.kotlin_mvp.user.UserAdapter
+import com.chen.kotlin.kotlin_mvp.Base.BaseDataCallBack
+import com.chen.kotlin.kotlin_mvp.R
+import com.chen.kotlin.kotlin_mvp.user.adapter.UserAdapter
 import com.chen.kotlin.kotlin_mvp.user.module.User
-import com.chen.kotlin.kotlin_mvp.user.presenter.DataCallBack
 import com.chen.kotlin.kotlin_mvp.user.presenter.UserPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : BaseActivity() ,DataCallBack{
+class MainActivity : BaseActivity() ,BaseDataCallBack<List<User>>{
 
     val mAdapter : UserAdapter by lazy {
         UserAdapter(this)
